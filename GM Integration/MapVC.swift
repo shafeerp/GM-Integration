@@ -63,8 +63,6 @@ class MapVC: UIViewController{
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : AnyObject]
                     let routes = json["routes"] as! NSArray
-                    print("json ois \(json)")
-                    //self.mapView.clear()
                     
                     OperationQueue.main.addOperation({
                         for route in routes
@@ -112,7 +110,7 @@ extension MapVC : GMSMapViewDelegate,MapMarkerDelegate{
    
    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         let loc = CLLocation(latitude: marker.layer.latitude, longitude: marker.layer.longitude)
-        Common.fetchCountryAndCity(location: loc) { (addr1, addr2) in
+        Common.getAddress(location: loc) { (address) in
             self.clickedMarker = marker
             self.infoWindow.removeFromSuperview()
             self.self.infoWindow = self.loadNiB()
@@ -123,11 +121,12 @@ extension MapVC : GMSMapViewDelegate,MapMarkerDelegate{
             self.infoWindow.layer.cornerRadius = 12
             self.infoWindow.layer.borderWidth = 4
             self.infoWindow.directionButton.layer.cornerRadius = self.infoWindow.directionButton.frame.height / 2
-            self.infoWindow.addressLabel.text = addr1 + addr2
+            self.infoWindow.addressLabel.text = address
             self.infoWindow.center = mapView.projection.point(for: location)
             self.infoWindow.center.y = self.infoWindow.center.y - 82
             self.view.addSubview(self.infoWindow)
         }
+    
         return false
     }
     
@@ -145,6 +144,8 @@ extension MapVC : GMSMapViewDelegate,MapMarkerDelegate{
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         return nil
     }
+    
+ 
 
 }
 

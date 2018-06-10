@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import UIKit
+import GoogleMaps
 
 class Common{
     //Constatnts
@@ -24,8 +25,8 @@ class Common{
     
     
     //Latitude and Longitudes
-    public static let M_LOCATION = CLLocation(latitude: 19.089843,longitude: 72.865614)
-    public static let C_LOCATION = CLLocation(latitude: 12.994149,longitude: 80.170880)
+    public static let M_LOCATION = CLLocation(latitude: 19.089560,longitude: 72.865614)
+    public static let CHENNAI_LOCATION = CLLocation(latitude: 12.994112,longitude: 80.170867)
     
     public static func getCurrentLocation() -> CLLocation{
         let locationManager = CLLocationManager()
@@ -39,42 +40,27 @@ class Common{
         return currentLocation
     }
     
-    public static func fetchCountryAndCity(location: CLLocation, completion: @escaping (String,String) -> ()) {
-        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-            var address : String = ""
-            var thoroughfare : String = ""
-            if let error = error {
-                print(error)
+    public static func getAddress(location:CLLocation,completion: @escaping (String) -> Void){
+        var myAddress = String()
+        let coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude,location.coordinate.longitude)
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+            if let addres = response?.firstResult(){
+                let lines = addres.lines! as [String]
+                myAddress = lines.joined()
+                completion(myAddress)
+                
             }
-            
-            let place = placemarks! as [CLPlacemark]
-            if place.count > 0 {
-                let place = placemarks![0]
-    
-             
-                if place.locality != nil {
-                thoroughfare = thoroughfare + place.locality! + " - "
-                }
-                if place.postalCode != nil {
-                thoroughfare = thoroughfare + place.postalCode! + "\n"
-                }
-                if place.subAdministrativeArea != nil {
-                address = address + place.subAdministrativeArea! + " - "
-                }
-                if place.country != nil {
-                address = address + place.country!
-                }
-            }
-             completion(thoroughfare,address)
         }
+        
     }
     
     public static func AddMarkerDetails() -> [MarkerDetails]{
         
         var markerDetails = [MarkerDetails]()
-        let currentLocation = MarkerDetails(location: Common.MY_LOCATION, color: .green)
+        let currentLocation = MarkerDetails(location: Common.getCurrentLocation(), color: .green)
         let mumbaiAirport = MarkerDetails(location: Common.M_LOCATION, color: .red)
-        let chennaiAirport = MarkerDetails(location: Common.C_LOCATION, color: .blue)
+        let chennaiAirport = MarkerDetails(location: Common.CHENNAI_LOCATION, color: .blue)
         markerDetails.append(currentLocation)
         markerDetails.append(mumbaiAirport)
         markerDetails.append(chennaiAirport)
