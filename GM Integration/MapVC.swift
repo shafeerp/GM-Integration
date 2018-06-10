@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MapVC: UIViewController{
+class MapVC: UIViewController,CLLocationManagerDelegate{
     
     @IBOutlet var mapView: GMSMapView!
     
@@ -20,19 +20,20 @@ class MapVC: UIViewController{
     
     private var infoWindow = MapMarkerWindow()
     
-    var locationManager = CLLocationManager()
+    var locationManager : CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       locationManager.requestWhenInUseAuthorization()
-        showMap()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.infoWindow = loadNiB()
     }
    
     func showMap(){
-        
+    
         markerDetails = Common.AddMarkerDetails()
-        mapView.camera = GMSCameraPosition(target: Common.MY_LOCATION.coordinate, zoom: 6, bearing: 0, viewingAngle: 0)
+        mapView.camera = GMSCameraPosition(target: Common.getCurrentLocation().coordinate, zoom: 6, bearing: 0, viewingAngle: 0)
       
             for marker in markerDetails{
                 let location = CLLocationCoordinate2D(latitude: (marker.location?.coordinate.latitude)!, longitude: (marker.location?.coordinate.longitude)!)
@@ -97,7 +98,32 @@ class MapVC: UIViewController{
         let infoWindow = MapMarkerWindow.instanceFromNib() as! MapMarkerWindow
         return infoWindow
     }
-    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status{
+        case .authorizedAlways:
+            showMap()
+            break
+        case .authorizedWhenInUse:
+            showMap()
+            break
+        case .denied:
+            showAlert(message: "Please enable location")
+            break
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            showAlert(message: "Please enable location")
+            break
+        }
+    }
+    func showAlert(message:String){
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension MapVC : GMSMapViewDelegate,MapMarkerDelegate{
