@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		07F1A1303CDCB643497B9ADD /* Pods_GM_Integration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072BDB68CAF430E808081579 /* Pods_GM_Integration.framework */; };
+		9D0F9E5D20CD06BA0012C834 /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0F9E5C20CD06BA0012C834 /* MapMarkerWindowView.xib */; };
+		9D0F9E5F20CD09360012C834 /* MapMarkerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F9E5E20CD09360012C834 /* MapMarkerWindow.swift */; };
+		9D0F9E6120CD30210012C834 /* MarkerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F9E6020CD30210012C834 /* MarkerDetails.swift */; };
 		9DE7238020CBDFC700D0FEE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7237F20CBDFC700D0FEE1 /* AppDelegate.swift */; };
 		9DE7238520CBDFC700D0FEE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE7238320CBDFC700D0FEE1 /* Main.storyboard */; };
 		9DE7238820CBDFC800D0FEE1 /* GM_Integration.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7238620CBDFC700D0FEE1 /* GM_Integration.xcdatamodeld */; };
 		9DE7238A20CBDFC800D0FEE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE7238920CBDFC800D0FEE1 /* Assets.xcassets */; };
 		9DE7238D20CBDFC800D0FEE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE7238B20CBDFC800D0FEE1 /* LaunchScreen.storyboard */; };
 		9DE7239920CBE0C500D0FEE1 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7239820CBE0C500D0FEE1 /* MapVC.swift */; };
+		9DE7239C20CBE8EE00D0FEE1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7239B20CBE8EE00D0FEE1 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +36,9 @@
 /* Begin PBXFileReference section */
 		072BDB68CAF430E808081579 /* Pods_GM_Integration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GM_Integration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C687F21462DDD2CAEA1CC80 /* Pods-GM Integration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Integration.release.xcconfig"; path = "Pods/Target Support Files/Pods-GM Integration/Pods-GM Integration.release.xcconfig"; sourceTree = "<group>"; };
+		9D0F9E5C20CD06BA0012C834 /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
+		9D0F9E5E20CD09360012C834 /* MapMarkerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerWindow.swift; sourceTree = "<group>"; };
+		9D0F9E6020CD30210012C834 /* MarkerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerDetails.swift; sourceTree = "<group>"; };
 		9DE7237C20CBDFC700D0FEE1 /* GM Integration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM Integration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE7237F20CBDFC700D0FEE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DE7238420CBDFC700D0FEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +47,7 @@
 		9DE7238C20CBDFC800D0FEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DE7238E20CBDFC800D0FEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DE7239820CBE0C500D0FEE1 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		9DE7239B20CBE8EE00D0FEE1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		F0BA9FE96CBA9E8AF4239268 /* Pods-GM Integration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GM Integration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GM Integration/Pods-GM Integration.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +101,7 @@
 		9DE7237E20CBDFC700D0FEE1 /* GM Integration */ = {
 			isa = PBXGroup;
 			children = (
+				9DE7239A20CBE8DE00D0FEE1 /* Util */,
 				9DE7237F20CBDFC700D0FEE1 /* AppDelegate.swift */,
 				9DE7238320CBDFC700D0FEE1 /* Main.storyboard */,
 				9DE7238920CBDFC800D0FEE1 /* Assets.xcassets */,
@@ -100,8 +109,19 @@
 				9DE7238E20CBDFC800D0FEE1 /* Info.plist */,
 				9DE7238620CBDFC700D0FEE1 /* GM_Integration.xcdatamodeld */,
 				9DE7239820CBE0C500D0FEE1 /* MapVC.swift */,
+				9D0F9E5C20CD06BA0012C834 /* MapMarkerWindowView.xib */,
+				9D0F9E5E20CD09360012C834 /* MapMarkerWindow.swift */,
+				9D0F9E6020CD30210012C834 /* MarkerDetails.swift */,
 			);
 			path = "GM Integration";
+			sourceTree = "<group>";
+		};
+		9DE7239A20CBE8DE00D0FEE1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9DE7239B20CBE8EE00D0FEE1 /* Common.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +189,7 @@
 				9DE7238D20CBDFC800D0FEE1 /* LaunchScreen.storyboard in Resources */,
 				9DE7238A20CBDFC800D0FEE1 /* Assets.xcassets in Resources */,
 				9DE7238520CBDFC700D0FEE1 /* Main.storyboard in Resources */,
+				9D0F9E5D20CD06BA0012C834 /* MapMarkerWindowView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +243,10 @@
 			files = (
 				9DE7238020CBDFC700D0FEE1 /* AppDelegate.swift in Sources */,
 				9DE7239920CBE0C500D0FEE1 /* MapVC.swift in Sources */,
+				9D0F9E6120CD30210012C834 /* MarkerDetails.swift in Sources */,
 				9DE7238820CBDFC800D0FEE1 /* GM_Integration.xcdatamodeld in Sources */,
+				9D0F9E5F20CD09360012C834 /* MapMarkerWindow.swift in Sources */,
+				9DE7239C20CBE8EE00D0FEE1 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
