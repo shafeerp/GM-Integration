@@ -44,7 +44,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate{
         }
     
     
-     func showRoute(){
+    func showRoute(){
         infoWindow.removeFromSuperview()
         mapView.clear()
         showMap()
@@ -73,7 +73,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate{
                             let path = GMSPath.init(fromEncodedPath: points! as! String)
                             let polyline = GMSPolyline.init(path: path)
                             polyline.strokeWidth = 3
-                            
+                            polyline.strokeColor = .red
                             let bounds = GMSCoordinateBounds(path: path!)
                             self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
                             
@@ -113,7 +113,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate{
             manager.requestWhenInUseAuthorization()
             break
         case .restricted:
-            showAlert(message: "Please enable location")
+            showAlert(message: "You are Restricted to access location")
             break
         }
     }
@@ -129,6 +129,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate{
 extension MapVC : GMSMapViewDelegate,MapMarkerDelegate{
     
     func didTapDirectionButton() {
+        
         showRoute()
     }
     

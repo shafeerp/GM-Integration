@@ -80,6 +80,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9D0F9E6620CDA99D0012C834 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9DE7238B20CBDFC800D0FEE1 /* LaunchScreen.storyboard */,
+				9D0F9E5C20CD06BA0012C834 /* MapMarkerWindowView.xib */,
+				9DE7238320CBDFC700D0FEE1 /* Main.storyboard */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		9D0F9E6720CDA9D00012C834 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				9DE7239820CBE0C500D0FEE1 /* MapVC.swift */,
+				9D0F9E6020CD30210012C834 /* MarkerDetails.swift */,
+				9D0F9E5E20CD09360012C834 /* MapMarkerWindow.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		9DE7237320CBDFC700D0FEE1 = {
 			isa = PBXGroup;
 			children = (
@@ -101,17 +121,13 @@
 		9DE7237E20CBDFC700D0FEE1 /* GM Integration */ = {
 			isa = PBXGroup;
 			children = (
+				9D0F9E6720CDA9D00012C834 /* controller */,
+				9D0F9E6620CDA99D0012C834 /* views */,
 				9DE7239A20CBE8DE00D0FEE1 /* Util */,
 				9DE7237F20CBDFC700D0FEE1 /* AppDelegate.swift */,
-				9DE7238320CBDFC700D0FEE1 /* Main.storyboard */,
 				9DE7238920CBDFC800D0FEE1 /* Assets.xcassets */,
-				9DE7238B20CBDFC800D0FEE1 /* LaunchScreen.storyboard */,
 				9DE7238E20CBDFC800D0FEE1 /* Info.plist */,
 				9DE7238620CBDFC700D0FEE1 /* GM_Integration.xcdatamodeld */,
-				9DE7239820CBE0C500D0FEE1 /* MapVC.swift */,
-				9D0F9E5C20CD06BA0012C834 /* MapMarkerWindowView.xib */,
-				9D0F9E5E20CD09360012C834 /* MapMarkerWindow.swift */,
-				9D0F9E6020CD30210012C834 /* MarkerDetails.swift */,
 			);
 			path = "GM Integration";
 			sourceTree = "<group>";

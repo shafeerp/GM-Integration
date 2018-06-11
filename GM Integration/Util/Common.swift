@@ -13,16 +13,8 @@ import GoogleMaps
 
 class Common{
     //Constatnts
+    
     public static let API_KEY  = "AIzaSyBycaYEo7FXCHljFyn4vEaIISiHXHwUPIU"
-    public static let MY_LOCATION = CLLocation(latitude: 13.198540, longitude: 77.705910)
-    
-    //Scenarios
-    
-    public static let CURRENT_LOCATION = "current_location"
-    public static let MUMBAI_AIRPORT = "mumbai_airport"
-    public static let CHENNAI_AIRPORT = "chennai_aiportt"
-    
-    
     
     //Latitude and Longitudes
     public static let M_LOCATION = CLLocation(latitude: 19.089560,longitude: 72.865614)
